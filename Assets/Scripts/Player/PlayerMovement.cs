@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]private float movementSpeed;
+    [SerializeField]private float movementSpeed = default;
 
     private void Update() {
         Movement(movementSpeed);

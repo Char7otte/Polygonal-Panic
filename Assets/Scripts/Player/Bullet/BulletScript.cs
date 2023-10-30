@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField]private float travelSpeed;
+    [SerializeField]private float travelSpeed = default;
 
     private void Update() {
         transform.position += transform.up * travelSpeed * Time.deltaTime;
