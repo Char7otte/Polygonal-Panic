@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField]private int bulletDamage = default;
+    [SerializeField]private float gunFireRate = default;
+    [SerializeField]private Transform bulletSpawnPosition = default;
+    [SerializeField]private GameObject bulletPrefab = default;
+
+    private void Update() {
+        Shoot(bulletDamage, gunFireRate);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Shoot(int damage, float fireRate) {
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) {
+            Instantiate(bulletPrefab, bulletSpawnPosition);
+        }
     }
 }
