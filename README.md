@@ -1,2 +1,4 @@
 # Polygonal-Panic-
-square vs the 3 sided syndicate 
+Tommy Angles fights the triangle goons
+
+name pending
