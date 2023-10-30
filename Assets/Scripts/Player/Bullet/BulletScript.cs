@@ -8,5 +8,6 @@ public class BulletScript : MonoBehaviour
 
     private void Update() {
         transform.position += transform.up * travelSpeed * Time.deltaTime;
+        if (transform.position.y >= 10) Destroy(this.gameObject);
     }
 }
