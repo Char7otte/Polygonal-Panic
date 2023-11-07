@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet Barrier
   - Player Bullet
+  - Enemy Bullet
   layers:
   - Default
   - TransparentFX
