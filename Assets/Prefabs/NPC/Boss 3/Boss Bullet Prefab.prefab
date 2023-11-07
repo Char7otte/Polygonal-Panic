@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 5
-  bulletLifeTime: 3
+  bulletLifeTime: 10
   damageValue: 1
   curveTowardsPlayer: 1
   rotation: 45
