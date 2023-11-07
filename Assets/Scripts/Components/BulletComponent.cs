@@ -21,7 +21,7 @@ public class BulletComponent : MonoBehaviour
 
     private void OnEnable() {
         StartCoroutine(DeactivateObject());
-        rotationDirection = CurveBulletsTowardPlayer();
+        if (curveTowardsPlayer) rotationDirection = CurveBulletsTowardPlayer();
     }
 
     private void Update() {
@@ -40,13 +40,7 @@ public class BulletComponent : MonoBehaviour
 
     private int CurveBulletsTowardPlayer()
     {
-        if (this.gameObject.transform.position.x > GameManager.player.transform.position.x)
-        {
-            return -1;
-        }
-        else
-        {
-            return 1;
-        }
+        if (this.gameObject.transform.position.x > GameManager.player.transform.position.x) return -1;
+        else return 1;
     }
 }
