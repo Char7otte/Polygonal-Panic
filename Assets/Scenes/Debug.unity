@@ -1003,9 +1003,6 @@ MonoBehaviour:
   bulletSpawnPositions:
   - {fileID: 1377745079}
   - {fileID: 1129801114}
-  bulletGroup: {fileID: 312018207}
-  bulletPrefab: {fileID: 4981929816117080656, guid: 2910955faa6399f4caa5f412879b8342,
-    type: 3}
 --- !u!114 &2002004546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,7 +1018,7 @@ MonoBehaviour:
   pooledObjects: []
   objectToPool: {fileID: 4981929816117080656, guid: 2910955faa6399f4caa5f412879b8342,
     type: 3}
-  amountToPool: 20
+  amountToPool: 10
   poolGroup: {fileID: 312018208}
 --- !u!60 &2002004547
 PolygonCollider2D:
