@@ -131,6 +131,7 @@ MonoBehaviour:
   rotateSpeed: 0
   bulletLifeTime: 1
   rotationDirection: 1
+  goUp: 1
   damageValue: 1
 --- !u!58 &1746530213664868284
 CircleCollider2D:

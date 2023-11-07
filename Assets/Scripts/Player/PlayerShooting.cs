@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField]private int bulletDamage = default;
     [SerializeField]private float gunFireRate = default;
     [SerializeField]private float timer = default;
 
