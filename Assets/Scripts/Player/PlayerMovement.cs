@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Game Screen Bounds")]
-    private Camera mainCamera;
-    private Vector3 screenBounds;
-    private float objectWidth;
-    private float objectHeight;
+    private Camera mainCamera = default;
+    private Vector3 screenBounds = default;
+    private float objectWidth = default;
+    private float objectHeight = default;
 
     [Header("Movement Parameters")]
     [SerializeField]private float movementSpeed = default;
