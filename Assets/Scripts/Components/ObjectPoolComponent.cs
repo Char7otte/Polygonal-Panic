@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPoolComponent : MonoBehaviour
 {
     [HideInInspector]public List<GameObject> pooledObjects;
     [SerializeField]private GameObject objectToPool;
