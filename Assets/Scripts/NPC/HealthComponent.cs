@@ -15,7 +15,6 @@ public class HealthComponent : MonoBehaviour
         currentHealth -= damageValue;
         
         if (currentHealth <= 0) {
-            print("Object has died.");
             Destroy(this.gameObject);
         }
     }
