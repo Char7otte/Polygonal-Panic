@@ -7,9 +7,6 @@ public class Boss3Shooting : MonoBehaviour
     [SerializeField]private float fireRate = default;
     [SerializeField]private Transform[] bulletSpawnPositions = default;
     float timer;
-    [SerializeField]private GameObject bulletGroup = default;
-    [SerializeField]private GameObject bulletPrefab = default;
-
     ObjectPoolComponent objectPoolComponent = default;
 
     private void Start() {

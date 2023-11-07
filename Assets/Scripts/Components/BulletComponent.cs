@@ -10,8 +10,7 @@ public class BulletComponent : MonoBehaviour
     [SerializeField]private float bulletLifeTime = default;
     [Tooltip("Please only input -1, 0, or 1.")]
     [SerializeField]private int rotationDirection = default;
-    [SerializeField]private bool goUp = default;
-
+    
     [Header("Bullet Damage")]
     public int damageValue = default;
 

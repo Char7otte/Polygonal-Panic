@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ObjectPoolComponent : MonoBehaviour
 {
-    [HideInInspector]public List<GameObject> pooledObjects;
-    [SerializeField]private GameObject objectToPool;
-    [SerializeField]private int amountToPool;
-    [SerializeField]private Transform poolGroup;
+    [HideInInspector]public List<GameObject> pooledObjects = default;
+    [SerializeField]private GameObject objectToPool = default;
+    [SerializeField]private int amountToPool = default;
+    [SerializeField]private Transform poolGroup = default;
 
     void Start()
     {
