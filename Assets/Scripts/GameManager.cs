@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+
+    #region Singleton
     public static GameManager Instance
     {
         get
@@ -22,9 +24,13 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
+    #endregion
+
+    public static GameObject player = default;
 
     private void Awake()
     {
+        #region Singleton
         if (instance == null)
         {
             instance = this;
@@ -34,5 +40,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        #endregion
+
+        player = GameObject.Find("Player");
     }
 }
