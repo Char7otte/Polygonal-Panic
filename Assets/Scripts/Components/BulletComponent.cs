@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletComponent : MonoBehaviour
 {
     [Header("Travel Parameters")]
     [SerializeField]private float travelSpeed = default;
