@@ -23,8 +23,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public MonoBehaviour monoBehaviour = default;
-
     private void Awake()
     {
         if (instance == null)

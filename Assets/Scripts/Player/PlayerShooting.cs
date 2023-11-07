@@ -33,7 +33,7 @@ public class PlayerShooting : MonoBehaviour
     }
 
     private void Shoot(float fireRate) {
-        Instantiate(bulletPrefab, bulletSpawnPosition.position , Quaternion.identity, bulletGroup);
+        Instantiate(bulletPrefab, bulletSpawnPosition.position , bulletSpawnPosition.rotation, bulletGroup);
         timer = fireRate;
     }
 }

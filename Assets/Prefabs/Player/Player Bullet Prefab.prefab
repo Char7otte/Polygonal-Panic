@@ -130,9 +130,10 @@ MonoBehaviour:
   travelSpeed: 20
   rotateSpeed: 0
   bulletLifeTime: 1
-  rotationDirection: 1
+  rotationDirection: 0
   goUp: 1
   damageValue: 1
+  bulletTypes: 
 --- !u!58 &1746530213664868284
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -24,8 +24,7 @@ public class Boss3Shooting : MonoBehaviour
         }
     }
 
-    IEnumerator Shoot() {
-        
+    IEnumerator Shoot() { 
         if (!bulletSpawnPoints[0]) goto SecondBullet;
         InstantiateBullet(bulletSpawnPoints[0]);
         yield return new WaitForSeconds(fireRate);
@@ -37,6 +36,6 @@ public class Boss3Shooting : MonoBehaviour
     }
 
     private void InstantiateBullet(Transform spawnPoint) {
-        Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity, bulletGroup.transform);
+        Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation, bulletGroup.transform);
     }
 }
