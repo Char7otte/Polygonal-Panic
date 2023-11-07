@@ -11,8 +11,8 @@ public class HUD : MonoBehaviour
 
     [Header("Heart Points")]
     [SerializeField]private Image[] heartPoints = default;
-    [SerializeField]private Sprite fullHeart;
-    [SerializeField]private Sprite emptyHeart;
+    [SerializeField]private Sprite fullHeart = default;
+    [SerializeField]private Sprite emptyHeart = default;
 
     private void Start()
     {
