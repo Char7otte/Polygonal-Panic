@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  currentHealth: 0
 --- !u!114 &58403361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,6 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  currentHealth: 0
 --- !u!114 &1859804098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,6 +869,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2002004544}
   - component: {fileID: 2002004545}
+  - component: {fileID: 2002004546}
+  - component: {fileID: 2002004549}
+  - component: {fileID: 2002004548}
+  - component: {fileID: 2002004547}
   m_Layer: 0
   m_Name: Boss 3
   m_TagString: Untagged
@@ -910,6 +916,73 @@ MonoBehaviour:
   bulletGroup: {fileID: 312018207}
   bulletPrefab: {fileID: 4981929816117080656, guid: 2910955faa6399f4caa5f412879b8342,
     type: 3}
+--- !u!114 &2002004546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002004543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c671c5d9b3167004f89787c1ba1fac9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &2002004547
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002004543}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.8, y: -0.8}
+      - {x: 0, y: 0.8}
+      - {x: -0.8, y: -0.8}
+--- !u!114 &2002004548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002004543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2978ef8a5a3fbb846bd86520f3316b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderObjectTag: Player Bullet
+--- !u!114 &2002004549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002004543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e1d66a1a0edff47a72443fa28722d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
 --- !u!1001 &4013420130825795716
 PrefabInstance:
   m_ObjectHideFlags: 0
