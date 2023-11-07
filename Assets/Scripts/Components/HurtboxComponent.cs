@@ -14,7 +14,7 @@ public class HurtboxComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == colliderObjectTag) {
             int damageValue = other.gameObject.GetComponent<BulletComponent>().damageValue;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             healthComponent.TakeDamage(damageValue);
         }
     }
