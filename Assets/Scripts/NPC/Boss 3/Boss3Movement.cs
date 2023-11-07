@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Boss3Movement : MonoBehaviour
 {
-    private bool isMoving = default;
-    [SerializeField] private float movementSpeed;
+    [SerializeField] private float movementSpeed = default;
 
     private Vector3 startPosition = default;
     private Vector3 endPosition = default;

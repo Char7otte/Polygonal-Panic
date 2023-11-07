@@ -17,8 +17,6 @@ public class BulletComponent : MonoBehaviour
     private int rotationDirection = default;
     [SerializeField] private float rotateSpeed = default;
 
-    private GameObject player = default;
-
     private void OnEnable() {
         StartCoroutine(DeactivateObject());
         if (curveTowardsPlayer) rotationDirection = CurveBulletsTowardPlayer();
