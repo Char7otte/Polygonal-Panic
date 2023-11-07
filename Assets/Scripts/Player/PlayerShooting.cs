@@ -12,13 +12,13 @@ public class PlayerShooting : MonoBehaviour
     // [SerializeField]private GameObject bulletPrefab = default;
     // [SerializeField]private Transform bulletGroup = default;
 
-    ObjectPool objectPool = default;
+    ObjectPoolComponent objectPoolComponent = default;
 
 
 
     private void Start() {
         timer = gunFireRate;
-        objectPool = GetComponent<ObjectPool>();
+        objectPoolComponent = GetComponent<ObjectPoolComponent>();
     }
 
     private void Update() {
@@ -38,15 +38,13 @@ public class PlayerShooting : MonoBehaviour
     }
 
     private void Shoot(float fireRate) {
-        //Instantiate(bulletPrefab, bulletSpawnPosition.position , bulletSpawnPosition.rotation, bulletGroup);
-
-        GameObject bullet = objectPool.GetPooledObject(); 
+        GameObject bullet = objectPoolComponent.GetPooledObject(); 
         if (bullet != null) {
             bullet.transform.position = bulletSpawnPosition.position;
             bullet.transform.rotation = bulletSpawnPosition.rotation;
             bullet.SetActive(true);
         }
-        
+
         timer = fireRate;
     }
 }

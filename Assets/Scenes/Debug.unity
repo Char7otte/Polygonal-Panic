@@ -962,6 +962,7 @@ GameObject:
   - component: {fileID: 2002004544}
   - component: {fileID: 2002004545}
   - component: {fileID: 2002004547}
+  - component: {fileID: 2002004546}
   m_Layer: 0
   m_Name: Boss 3
   m_TagString: Untagged
@@ -999,12 +1000,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.2
-  bulletSpawnPoints:
+  bulletSpawnPositions:
   - {fileID: 1377745079}
   - {fileID: 1129801114}
   bulletGroup: {fileID: 312018207}
   bulletPrefab: {fileID: 4981929816117080656, guid: 2910955faa6399f4caa5f412879b8342,
     type: 3}
+--- !u!114 &2002004546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002004543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3295db1516a698c49b2bb4297d532bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 4981929816117080656, guid: 2910955faa6399f4caa5f412879b8342,
+    type: 3}
+  amountToPool: 20
+  poolGroup: {fileID: 312018208}
 --- !u!60 &2002004547
 PolygonCollider2D:
   m_ObjectHideFlags: 0

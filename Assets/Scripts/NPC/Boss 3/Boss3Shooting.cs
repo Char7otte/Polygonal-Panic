@@ -5,13 +5,16 @@ using UnityEngine;
 public class Boss3Shooting : MonoBehaviour
 {
     [SerializeField]private float fireRate = default;
-    [SerializeField]private Transform[] bulletSpawnPoints = default;
+    [SerializeField]private Transform[] bulletSpawnPositions = default;
     float timer;
     [SerializeField]private GameObject bulletGroup = default;
     [SerializeField]private GameObject bulletPrefab = default;
 
+    ObjectPoolComponent objectPoolComponent = default;
+
     private void Start() {
         timer = fireRate;
+        objectPoolComponent = GetComponent<ObjectPoolComponent>();
     }
 
     private void Update() {
@@ -25,17 +28,24 @@ public class Boss3Shooting : MonoBehaviour
     }
 
     IEnumerator Shoot() { 
-        if (!bulletSpawnPoints[0]) goto SecondBullet;
-        InstantiateBullet(bulletSpawnPoints[0]);
+        if (!bulletSpawnPositions[0]) goto SecondBullet;
+        InstantiateBullet(bulletSpawnPositions[0]);
         yield return new WaitForSeconds(fireRate);
 
         SecondBullet:
-        if (!bulletSpawnPoints[1]) yield break;
-        InstantiateBullet(bulletSpawnPoints[1]);
+        if (!bulletSpawnPositions[1]) yield break;
+        InstantiateBullet(bulletSpawnPositions[1]);
         yield return new WaitForSeconds(fireRate);
     }
 
-    private void InstantiateBullet(Transform spawnPoint) {
-        Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation, bulletGroup.transform);
+    private void InstantiateBullet(Transform bulletSpawnPosition) {
+        //Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation, bulletGroup.transform);
+
+        GameObject bullet = objectPoolComponent.GetPooledObject(); 
+        if (bullet != null) {
+            bullet.transform.position = bulletSpawnPosition.position;
+            bullet.transform.rotation = bulletSpawnPosition.rotation;
+            bullet.SetActive(true);
+        }
     }
 }
