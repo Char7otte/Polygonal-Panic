@@ -5,29 +5,41 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private float movementSpeed = default;
+    [SerializeField]private float spinSpeed = default;
+    [SerializeField]private Transform spriteTexture = default;
+
+    int rotateDirection;
 
     private void Update() {
         Movement(movementSpeed);
     }
 
     private void Movement(float movementSpeed) {
+        int verticalInput = 0;
+        int horizontalInput = 0;
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            transform.position += transform.up * movementSpeed * Time.deltaTime;
+            verticalInput = 1;
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position -= transform.up * movementSpeed * Time.deltaTime;
+            verticalInput = -1;
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position -= transform.right * movementSpeed * Time.deltaTime;
-            transform.localScale = new Vector3(1, 1, 1);
+            horizontalInput = -1;
+            rotateDirection = -1;
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position += transform.right * movementSpeed * Time.deltaTime;
-            transform.localScale = new Vector3(-1, 1, 1);
+            horizontalInput = 1;
+            rotateDirection = 1;
         }
+
+        Vector3 movementVector = new Vector3(horizontalInput, verticalInput, 0);
+        movementVector.Normalize();
+        transform.Translate(movementVector * movementSpeed * Time.deltaTime);
+        spriteTexture.Rotate(0, 0, spinSpeed * Time.deltaTime * rotateDirection * -1);
     }
 }

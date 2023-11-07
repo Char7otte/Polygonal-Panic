@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1143569743559976943}
   - component: {fileID: 1746530213664868284}
   m_Layer: 0
-  m_Name: Bullet Prefab
+  m_Name: Player Bullet Prefab
   m_TagString: Player Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 20
+  rotateSpeed: 180
+  bulletLifeTime: 1
+  rotationDirection: 1
 --- !u!58 &1746530213664868284
 CircleCollider2D:
   m_ObjectHideFlags: 0
