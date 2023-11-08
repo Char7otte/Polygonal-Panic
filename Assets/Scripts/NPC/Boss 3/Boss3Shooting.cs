@@ -72,22 +72,18 @@ public class Boss3Shooting : MonoBehaviour
         timesToRepeat = 5;
         for (int i = 0; i < timesToRepeat; i++) {
             if (bulletSpawnPositions[0]) InstantiateBullet(bulletSpawnPositions[0]);
-            print("First.");
             yield return new WaitForSeconds(phase1FireRate);
             if (bulletSpawnPositions[1]) InstantiateBullet(bulletSpawnPositions[1]);
-            print("Second.");
             yield return new WaitForSeconds(phase1FireRate);
         }
 
         timesToRepeat = 10;
         for (int i = 0; i < timesToRepeat; i++) {
             InstantiateBullet(bulletSpawnPositions[2]);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
 
-        print("Finished.");
         yield return new WaitForSeconds(phase1FireRate);
-
         isCoroutineRunning = false;
     }
     #endregion
