@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   travelSpeed: 25
   bulletLifeTime: 1
-  damageValue: 5
+  damageValue: 1
   curveTowardsPlayer: 0
   rotation: 0
   rotateSpeed: 0
