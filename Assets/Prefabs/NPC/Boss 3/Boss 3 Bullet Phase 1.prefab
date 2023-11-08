@@ -65,7 +65,7 @@ MonoBehaviour:
   bulletLifeTime: 3
   damageValue: 1
   curveTowardsPlayer: 1
-  rotation: 45
+  rotation: 30
   rotateSpeed: 1
 --- !u!1 &6048774205140751457
 GameObject:
