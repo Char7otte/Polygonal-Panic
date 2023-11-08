@@ -52,7 +52,7 @@ public class Boss3Movement : MonoBehaviour
         yield return new WaitForSeconds(2);
         transform.position += transform.up * movementSpeed;
         yield return new WaitForSeconds(2);
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 
     private void GeneratePath(float minX, float maxX, float minY, float maxY)

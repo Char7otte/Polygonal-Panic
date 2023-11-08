@@ -19,6 +19,8 @@ public class Boss3PhaseManager : MonoBehaviour
     public bool phase2 = default;
     public float phase2ExitHealthPercentage = default;
     public bool phase3 = default;
+    public float phase3ExitTimer = default;
+    public bool phase4 = default;
 
     [Header("Boss Parameters")]
     public int bossMaxHealth = default;
@@ -38,8 +40,13 @@ public class Boss3PhaseManager : MonoBehaviour
         if (phase1) {
             bossTotalHealth = GetBossHealth();
         }
-        if (phase2) {
+        else if (phase2) {
             bossTotalHealth = GetBossHealth();
+        }
+        else if (phase3) {
+            phase3ExitTimer -= Time.deltaTime;
+        }
+        else if (phase4) {
         }
     }
 
@@ -54,6 +61,11 @@ public class Boss3PhaseManager : MonoBehaviour
         else if (bossTotalHealth == 0) {
             phase2 = false;
             phase3 = true;
+
+            if (phase3ExitTimer <= 0) {
+                phase3 = false;
+                phase4 = true;
+            }
         }
     }
 

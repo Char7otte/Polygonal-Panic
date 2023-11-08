@@ -20,6 +20,10 @@ public class Boss3Shooting : MonoBehaviour
     [SerializeField]private float phase2FireRate = default;
     private bool phase2Entered = default;
 
+    [Header("Phase 3")]
+    [SerializeField]private float phase3FireRate = default;
+    private bool phase3Entered = default;
+
     private void Start() {
         objectPoolComponent = GetComponent<ObjectPoolComponent>();
     }
@@ -36,12 +40,18 @@ public class Boss3Shooting : MonoBehaviour
                 }
                 if (!isCoroutineRunning) Phase1Update();
             }
-            if (Boss3PhaseManager.instance.phase2) {
+            else if (Boss3PhaseManager.instance.phase2) {
                 if (!phase2Entered) {
                     Phase2Enter();
                     phase2Entered = true;
                 }
                 Phase2Update();
+            }
+            else if (Boss3PhaseManager.instance.phase3) {
+                if (!phase3Entered) {
+                    Phase3Enter();
+                    phase3Entered = true;
+                }
             }
         }
     }
@@ -107,6 +117,12 @@ public class Boss3Shooting : MonoBehaviour
 
         yield return new WaitForSeconds(fireRate);
         isCoroutineRunning = false;
+    }
+    #endregion
+
+    #region Phase 3 Code
+    private void Phase3Enter() {
+        Debug.Log("Phase 3 entered.");
     }
     #endregion
 }
