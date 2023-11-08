@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e1d66a1a0edff47a72443fa28722d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 20
   currentHealth: 0
 --- !u!114 &58403361
 MonoBehaviour:
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e1d66a1a0edff47a72443fa28722d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 20
   currentHealth: 0
 --- !u!114 &1859804098
 MonoBehaviour:
@@ -1772,6 +1772,10 @@ PrefabInstance:
       propertyPath: bulletGroup
       value: 
       objectReference: {fileID: 972650130}
+    - target: {fileID: 2050352021, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
+      propertyPath: gunFireRate
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4013420129753002175, guid: 8a46d07dbb5164f4f831291ff27f7bf7,
         type: 3}
       propertyPath: m_Enabled
