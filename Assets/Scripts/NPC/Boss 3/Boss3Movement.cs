@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss3Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = default;
+    private float _movementSpeed = default;
 
     private Vector3 startPosition = default;
     private Vector3 endPosition = default;
@@ -14,10 +15,15 @@ public class Boss3Movement : MonoBehaviour
     private void Start()
     {
         GeneratePath();
+        _movementSpeed = movementSpeed;
     }
 
     private void Update()
     {
+        if (Boss3PhaseManager.instance.phase2) {
+            movementSpeed = _movementSpeed * 1.5f;
+        }
+
         float distCovered = (Time.time - startTime) * movementSpeed;
         float fractionOfJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);

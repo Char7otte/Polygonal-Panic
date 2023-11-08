@@ -46,6 +46,13 @@ public class Boss3PhaseManager : MonoBehaviour
             if (bossHurtboxes[1]) bossHurtbox2 = bossHurtboxes[1].GetComponent<HealthComponent>().currentHealth;
             bossTotalHealth = bossHurtbox1 + bossHurtbox2;
         }
+        if (phase2) {
+            var bossHurtbox1 = 0;
+            var bossHurtbox2 = 0;
+            if (bossHurtboxes[0]) bossHurtbox1 = bossHurtboxes[0].GetComponent<HealthComponent>().currentHealth;
+            if (bossHurtboxes[1]) bossHurtbox2 = bossHurtboxes[1].GetComponent<HealthComponent>().currentHealth;
+            bossTotalHealth = bossHurtbox1 + bossHurtbox2;
+        }
     }
 
     private void CheckWhichPhase() {
