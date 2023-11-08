@@ -811,8 +811,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phase1: 0
+  phase1ExitHealthPercentage: 0.7
   phase2: 0
+  phase2ExitHealthPercentage: 0.5
   phase3: 0
+  bossMaxHealth: 0
   bossTotalHealth: 0
   bossHurtboxes:
   - {fileID: 58403357}
@@ -1699,9 +1702,7 @@ MonoBehaviour:
   bulletSpawnPositions:
   - {fileID: 1377745079}
   - {fileID: 1129801114}
-  phase1: 1
   phase1FireRate: 0.4
-  phase2: 0
   phase2FireRate: 0
 --- !u!114 &2002004546
 MonoBehaviour:
