@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3139478767781600030}
   - component: {fileID: 731198386}
   m_Layer: 0
-  m_Name: Boss Bullet Prefab
+  m_Name: Boss 3 Bullet Phase 1
   m_TagString: Enemy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 5
-  bulletLifeTime: 10
+  bulletLifeTime: 3
   damageValue: 1
   curveTowardsPlayer: 1
   rotation: 45
