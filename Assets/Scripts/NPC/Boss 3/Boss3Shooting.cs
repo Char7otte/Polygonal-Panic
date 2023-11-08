@@ -63,18 +63,18 @@ public class Boss3Shooting : MonoBehaviour
 
     private void Phase1Update() {
         timer = phase1FireRate * 2;
-        StartCoroutine(Phase1Shooting());
+        StartCoroutine(Phase1Shooting(phase1FireRate));
     }
 
-    IEnumerator Phase1Shooting() { 
+    IEnumerator Phase1Shooting(float fireRate) { 
         isCoroutineRunning = true;
 
         timesToRepeat = 5;
         for (int i = 0; i < timesToRepeat; i++) {
             if (bulletSpawnPositions[0]) InstantiateBullet(bulletSpawnPositions[0]);
-            yield return new WaitForSeconds(phase1FireRate);
+            yield return new WaitForSeconds(fireRate);
             if (bulletSpawnPositions[1]) InstantiateBullet(bulletSpawnPositions[1]);
-            yield return new WaitForSeconds(phase1FireRate);
+            yield return new WaitForSeconds(fireRate);
         }
 
         timesToRepeat = 10;
@@ -83,7 +83,7 @@ public class Boss3Shooting : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
-        yield return new WaitForSeconds(phase1FireRate);
+        yield return new WaitForSeconds(fireRate);
         isCoroutineRunning = false;
     }
     #endregion
@@ -91,10 +91,22 @@ public class Boss3Shooting : MonoBehaviour
     #region Phase 2 Code
     private void Phase2Enter() {
         Debug.Log("Phase 2 entered.");
+        timer = phase2FireRate;
     }
 
     private void Phase2Update() {
+        timer = phase2FireRate;
+        StartCoroutine(Phase2Shooting(phase2FireRate));
+    }
 
+    IEnumerator Phase2Shooting(float fireRate) {
+        isCoroutineRunning = true;
+
+        bulletSpawnPositions[2].Rotate(0, 0, 360 * 5 * Time.deltaTime);
+        InstantiateBullet(bulletSpawnPositions[2]);
+
+        yield return new WaitForSeconds(fireRate);
+        isCoroutineRunning = false;
     }
     #endregion
 }
