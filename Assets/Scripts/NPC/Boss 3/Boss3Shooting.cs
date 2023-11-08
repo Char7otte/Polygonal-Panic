@@ -9,17 +9,15 @@ public class Boss3Shooting : MonoBehaviour
     ObjectPoolComponent objectPoolComponent = default;
 
     [Header("Phase 1")] 
-    [SerializeField]private bool phase1 = default;
     [SerializeField]private float phase1FireRate = default;
+    private bool phase1Entered = default;
 
     [Header("Phase 2")]
-    [SerializeField]private bool phase2 = default;
     [SerializeField]private float phase2FireRate = default;
+    private bool phase2Entered = default;
 
     private void Start() {
         objectPoolComponent = GetComponent<ObjectPoolComponent>();
-
-        Phase1Enter();
     }
 
     private void Update() {
@@ -27,8 +25,19 @@ public class Boss3Shooting : MonoBehaviour
         timer = Mathf.Max(timer, 0);
 
         if (timer == 0) {
-            if (phase1) {
+            if (Boss3PhaseManager.instance.phase1) {
+                if (!phase1Entered) {
+                    Phase1Enter();
+                    phase1Entered = true;
+                }
                 Phase1Update();
+            }
+            if (Boss3PhaseManager.instance.phase2) {
+                if (!phase2Entered) {
+                    Phase2Enter();
+                    phase2Entered = true;
+                }
+                Phase2Update();
             }
         }
     }
@@ -46,8 +55,10 @@ public class Boss3Shooting : MonoBehaviour
 
     #region Phase 1 Code
     private void Phase1Enter() {
+        Debug.Log("Phase 1 entered.");
         timer = phase1FireRate;
     }
+    
     private void Phase1Update() {
         StartCoroutine(Phase1Shooting());
         timer = phase1FireRate * 2;
@@ -64,8 +75,9 @@ public class Boss3Shooting : MonoBehaviour
 
     #region Phase 2 Code
     private void Phase2Enter() {
-
+        Debug.Log("Phase 2 entered.");
     }
+
     private void Phase2Update() {
 
     }
