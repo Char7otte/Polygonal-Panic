@@ -32,26 +32,14 @@ public class Boss3PhaseManager : MonoBehaviour
         bossTotalHealth = bossMaxHealth;
     }
 
-    private void Start() {
-        
-    }
-
     private void Update() {  
         CheckWhichPhase();
 
         if (phase1) {
-            var bossHurtbox1 = 0;
-            var bossHurtbox2 = 0;
-            if (bossHurtboxes[0]) bossHurtbox1 = bossHurtboxes[0].GetComponent<HealthComponent>().currentHealth;
-            if (bossHurtboxes[1]) bossHurtbox2 = bossHurtboxes[1].GetComponent<HealthComponent>().currentHealth;
-            bossTotalHealth = bossHurtbox1 + bossHurtbox2;
+            bossTotalHealth = GetBossHealth();
         }
         if (phase2) {
-            var bossHurtbox1 = 0;
-            var bossHurtbox2 = 0;
-            if (bossHurtboxes[0]) bossHurtbox1 = bossHurtboxes[0].GetComponent<HealthComponent>().currentHealth;
-            if (bossHurtboxes[1]) bossHurtbox2 = bossHurtboxes[1].GetComponent<HealthComponent>().currentHealth;
-            bossTotalHealth = bossHurtbox1 + bossHurtbox2;
+            bossTotalHealth = GetBossHealth();
         }
     }
 
@@ -67,5 +55,13 @@ public class Boss3PhaseManager : MonoBehaviour
             phase2 = false;
             phase3 = true;
         }
+    }
+
+    private int GetBossHealth() {
+        var bossHurtbox1 = 0;
+        var bossHurtbox2 = 0;
+        if (bossHurtboxes[0]) bossHurtbox1 = bossHurtboxes[0].GetComponent<HealthComponent>().currentHealth;
+        if (bossHurtboxes[1]) bossHurtbox2 = bossHurtboxes[1].GetComponent<HealthComponent>().currentHealth;
+        return (bossHurtbox1 + bossHurtbox2);
     }
 }
