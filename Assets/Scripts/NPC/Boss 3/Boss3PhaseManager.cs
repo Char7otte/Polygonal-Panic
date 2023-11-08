@@ -15,7 +15,9 @@ public class Boss3PhaseManager : MonoBehaviour
 
     [Header("Phases")]
     public bool phase1 = default;
+    public float phase1ExitHealthPercentage = default;
     public bool phase2 = default;
+    public float phase2ExitHealthPercentage = default;
     public bool phase3 = default;
 
     [Header("Boss Parameters")]
@@ -47,10 +49,10 @@ public class Boss3PhaseManager : MonoBehaviour
     }
 
     private void CheckWhichPhase() {
-        if (bossTotalHealth > bossMaxHealth * 0.7) {
+        if (bossTotalHealth > bossMaxHealth * phase1ExitHealthPercentage) {
             phase1 = true;
         }
-        else if (bossTotalHealth > bossMaxHealth * 0.5) {
+        else if (bossTotalHealth > bossMaxHealth * phase2ExitHealthPercentage) {
             phase1 = false;
             phase2 = true;
         }
