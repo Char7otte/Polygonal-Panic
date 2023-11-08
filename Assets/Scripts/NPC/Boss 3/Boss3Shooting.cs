@@ -8,6 +8,10 @@ public class Boss3Shooting : MonoBehaviour
     float timer;
     ObjectPoolComponent objectPoolComponent = default;
 
+    [Header("Phases")]
+    private bool isCoroutineRunning = false;
+    private int timesToRepeat = default;
+
     [Header("Phase 1")] 
     [SerializeField]private float phase1FireRate = default;
     private bool phase1Entered = default;
@@ -30,7 +34,7 @@ public class Boss3Shooting : MonoBehaviour
                     Phase1Enter();
                     phase1Entered = true;
                 }
-                Phase1Update();
+                if (!isCoroutineRunning) Phase1Update();
             }
             if (Boss3PhaseManager.instance.phase2) {
                 if (!phase2Entered) {
@@ -42,7 +46,6 @@ public class Boss3Shooting : MonoBehaviour
         }
     }
 
-    #region Instantiate Bullet Code
     private void InstantiateBullet(Transform bulletSpawnPosition) {
         GameObject bullet = objectPoolComponent.GetPooledObject(); 
         if (bullet != null) {
@@ -51,25 +54,41 @@ public class Boss3Shooting : MonoBehaviour
             bullet.SetActive(true);
         }
     }
-    #endregion
 
     #region Phase 1 Code
     private void Phase1Enter() {
         Debug.Log("Phase 1 entered.");
         timer = phase1FireRate;
     }
-    
+
     private void Phase1Update() {
-        StartCoroutine(Phase1Shooting());
         timer = phase1FireRate * 2;
+        StartCoroutine(Phase1Shooting());
     }
 
     IEnumerator Phase1Shooting() { 
-        if (bulletSpawnPositions[0]) InstantiateBullet(bulletSpawnPositions[0]);
+        isCoroutineRunning = true;
+
+        timesToRepeat = 5;
+        for (int i = 0; i < timesToRepeat; i++) {
+            if (bulletSpawnPositions[0]) InstantiateBullet(bulletSpawnPositions[0]);
+            print("First.");
+            yield return new WaitForSeconds(phase1FireRate);
+            if (bulletSpawnPositions[1]) InstantiateBullet(bulletSpawnPositions[1]);
+            print("Second.");
+            yield return new WaitForSeconds(phase1FireRate);
+        }
+
+        timesToRepeat = 10;
+        for (int i = 0; i < timesToRepeat; i++) {
+            InstantiateBullet(bulletSpawnPositions[2]);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        print("Finished.");
         yield return new WaitForSeconds(phase1FireRate);
 
-        if (bulletSpawnPositions[1]) InstantiateBullet(bulletSpawnPositions[1]);
-        yield return new WaitForSeconds(phase1FireRate);
+        isCoroutineRunning = false;
     }
     #endregion
 

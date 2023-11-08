@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4013420129753002174}
   - component: {fileID: 4013420129753002168}
-  - component: {fileID: 4013420129753002175}
   m_Layer: 0
   m_Name: Sprite Texture
   m_TagString: Untagged
@@ -82,20 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4013420129753002175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4013420129753002173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 680c6a7ed85fc234b97ae7d254427738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpinSpeed: 400
-  isClockwiseSpinDirection: 0
 --- !u!1 &4013420130191022870
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,9 +90,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4013420130191022871}
+  - component: {fileID: 1974836260}
+  - component: {fileID: 411743993142863325}
   - component: {fileID: 4013420130191022864}
   - component: {fileID: 2050352021}
-  - component: {fileID: 1974836260}
+  - component: {fileID: 1974836261}
+  - component: {fileID: 1974836262}
+  - component: {fileID: 1974836265}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -131,38 +120,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4013420130191022864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4013420130191022870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4e69fc6cdb8c7e44ad155f653f947bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5
---- !u!114 &2050352021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4013420130191022870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3dc79f0ad8fbbf4cb1ffd6d39c3450e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletDamage: 0
-  gunFireRate: 0.1
-  timer: 0
-  bulletSpawnPosition: {fileID: 4013420130813600498}
-  bulletPrefab: {fileID: 5383479167113036744, guid: d013391518dd3ec459f54c5f9821f430,
-    type: 3}
-  bulletGroup: {fileID: 0}
 --- !u!61 &1974836260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +146,102 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
+--- !u!50 &411743993142863325
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013420130191022870}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &4013420130191022864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013420130191022870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e69fc6cdb8c7e44ad155f653f947bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  spinSpeed: 720
+  spriteTexture: {fileID: 4013420129753002174}
+--- !u!114 &2050352021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013420130191022870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dc79f0ad8fbbf4cb1ffd6d39c3450e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFireRate: 0.1
+  timer: 0
+  bulletSpawnPosition: {fileID: 4013420130813600498}
+--- !u!114 &1974836261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013420130191022870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2978ef8a5a3fbb846bd86520f3316b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderObjectTag: Enemy Bullet
+  invincibilityTime: 1
+--- !u!114 &1974836262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013420130191022870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e1d66a1a0edff47a72443fa28722d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+--- !u!114 &1974836265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013420130191022870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3295db1516a698c49b2bb4297d532bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 5383479167113036744, guid: d013391518dd3ec459f54c5f9821f430,
+    type: 3}
+  amountToPool: 15
+  poolGroup: {fileID: 0}
 --- !u!1 &4013420130813600497
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,10 +265,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4013420130813600497}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.294, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.2939999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4013420130191022871}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
