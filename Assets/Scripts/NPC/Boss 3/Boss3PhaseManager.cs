@@ -50,6 +50,7 @@ public class Boss3PhaseManager : MonoBehaviour
             phase3ExitTimer -= Time.deltaTime;
         }
         else if (phase4) {
+            bossTotalHealth = GetBossHealth2();
         }
     }
 
@@ -82,5 +83,9 @@ public class Boss3PhaseManager : MonoBehaviour
         if (bossHurtboxes[0]) bossHurtbox1 = bossHurtboxes[0].GetComponent<HealthComponent>().currentHealth;
         if (bossHurtboxes[1]) bossHurtbox2 = bossHurtboxes[1].GetComponent<HealthComponent>().currentHealth;
         return (bossHurtbox1 + bossHurtbox2);
+    }
+
+    private int GetBossHealth2() {
+        return bossHurtboxes[2].GetComponent<HealthComponent>().currentHealth;
     }
 }
