@@ -24,6 +24,10 @@ public class Boss3Shooting : MonoBehaviour
     [SerializeField]private float phase3FireRate = default;
     private bool phase3Entered = default;
 
+    [Header("Phase 4")]
+    [SerializeField]private float phase4FireRate = default;
+    private bool phase4Entered = default;
+
     private void Start() {
         objectPoolComponent = GetComponent<ObjectPoolComponent>();
     }
@@ -52,6 +56,14 @@ public class Boss3Shooting : MonoBehaviour
                     Phase3Enter();
                     phase3Entered = true;
                 }
+                if (!isCoroutineRunning) Phase3Update();
+            }
+            else if (Boss3PhaseManager.instance.phase4) {
+                if (!phase4Entered) {
+                    Phase4Enter();
+                    phase4Entered = true;
+                }
+                if (!isCoroutineRunning) Phase4Update();
             }
         }
     }
@@ -112,7 +124,7 @@ public class Boss3Shooting : MonoBehaviour
     IEnumerator Phase2Shooting(float fireRate) {
         isCoroutineRunning = true;
 
-        bulletSpawnPositions[2].Rotate(0, 0, 360 * 5 * Time.deltaTime);
+        bulletSpawnPositions[2].Rotate(0, 0, 360 * 10 * Time.deltaTime);
         InstantiateBullet(bulletSpawnPositions[2]);
 
         yield return new WaitForSeconds(fireRate);
@@ -123,6 +135,33 @@ public class Boss3Shooting : MonoBehaviour
     #region Phase 3 Code
     private void Phase3Enter() {
         Debug.Log("Phase 3 entered.");
+    }
+
+    private void Phase3Update() {
+        StartCoroutine(Phase3Shooting(bulletSpawnPositions, phase3FireRate));
+    }
+
+    IEnumerator Phase3Shooting(Transform[] spawnPoints, float fireRate) {
+        isCoroutineRunning = true;
+
+        InstantiateBullet(spawnPoints[0]);
+        yield return new WaitForSeconds(fireRate);
+        InstantiateBullet(spawnPoints[1]);
+        yield return new WaitForSeconds(fireRate);
+        InstantiateBullet(spawnPoints[2]);
+        yield return new WaitForSeconds(fireRate);
+
+        isCoroutineRunning = false;
+    }
+    #endregion
+
+    #region Phase 4 Code
+    private void Phase4Enter() {
+        Debug.Log("Phase 4 entered.");
+    }
+
+    private void Phase4Update() {
+
     }
     #endregion
 }

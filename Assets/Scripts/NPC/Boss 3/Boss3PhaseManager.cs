@@ -15,12 +15,15 @@ public class Boss3PhaseManager : MonoBehaviour
 
     [Header("Phases")]
     public bool phase1 = default;
+    public GameObject phase1Boss = default;
     public float phase1ExitHealthPercentage = default;
     public bool phase2 = default;
     public float phase2ExitHealthPercentage = default;
     public bool phase3 = default;
+    public GameObject phase3Boss = default;
     public float phase3ExitTimer = default;
     public bool phase4 = default;
+    public GameObject phase4Boss = default;
 
     [Header("Boss Parameters")]
     public int bossMaxHealth = default;
@@ -61,10 +64,14 @@ public class Boss3PhaseManager : MonoBehaviour
         else if (bossTotalHealth == 0) {
             phase2 = false;
             phase3 = true;
+            phase1Boss.SetActive(false);
+            phase3Boss.SetActive(true);
 
             if (phase3ExitTimer <= 0) {
                 phase3 = false;
                 phase4 = true;
+                phase3Boss.SetActive(false);
+                phase4Boss.SetActive(true);
             }
         }
     }

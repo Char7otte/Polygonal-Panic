@@ -49,10 +49,9 @@ public class Boss3Movement : MonoBehaviour
 
     IEnumerator Phase3Transition() {
         phase3TransitionStarted = true;
-        yield return new WaitForSeconds(2);
+        // yield return new WaitForSeconds(2);
         transform.position += transform.up * movementSpeed;
         yield return new WaitForSeconds(2);
-        //this.gameObject.SetActive(false);
     }
 
     private void GeneratePath(float minX, float maxX, float minY, float maxY)
