@@ -6,7 +6,7 @@ public class HealthComponent : MonoBehaviour
 {
     public int maxHealth = default;
     public int currentHealth = default;
-    public SpriteRenderer spriteRenderer = default;
+    private SpriteRenderer spriteRenderer = default;
     private bool startedCoroutine = false;
 
     private void Start() {

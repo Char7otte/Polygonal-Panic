@@ -25,7 +25,7 @@ public class Boss3Shooting : MonoBehaviour
     private bool phase3Entered = default;
 
     [Header("Phase 4")]
-    [SerializeField]private float phase4FireRate = default;
+    //[SerializeField]private float phase4FireRate = default;
     private bool phase4Entered = default;
 
     private void Start() {

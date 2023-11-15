@@ -14,10 +14,10 @@ public class Boss3Movement : MonoBehaviour
     private float journeyLength = default;
 
     [Header("Path Limits")]
-    [SerializeField]private float minX;
-    [SerializeField]private float maxX;
-    [SerializeField]private float minY;
-    [SerializeField]private float maxY;
+    [SerializeField]private float minX = default;
+    [SerializeField]private float maxX = default;
+    [SerializeField]private float minY = default;
+    [SerializeField]private float maxY = default;
 
     private bool phase3TransitionStarted = default;
 
@@ -60,10 +60,10 @@ public class Boss3Movement : MonoBehaviour
         yield return new WaitForSeconds(2);
     }
 
-    private void GeneratePath(float minX, float maxX, float minY, float maxY)
+    private void GeneratePath(float _minX, float _maxX, float _minY, float _maxY)
     {
         startPosition = transform.position;
-        endPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
+        endPosition = new Vector3(Random.Range(_minX, _maxX), Random.Range(_minY, _maxY), 0);
         startTime = Time.time;
         journeyLength = Vector3.Distance(startPosition, endPosition);
     }
