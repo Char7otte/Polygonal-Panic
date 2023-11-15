@@ -34,14 +34,12 @@ public class Boss3Movement : MonoBehaviour
         }
         else if (Boss3PhaseManager.instance.phase2) {
             MoveToPosition(movementSpeed * 1.5f);
-            GameObject sprite = CheckForSpriteRenderer();
         }
         else if (Boss3PhaseManager.instance.phase3) {
             transform.position += transform.up * movementSpeed * Time.deltaTime * 2;
             if(transform.position.y > 20) this.gameObject.SetActive(false);
         }
         else if (Boss3PhaseManager.instance.phase4) {
-            GameObject sprite = CheckForSpriteRenderer();
             MoveToPosition(movementSpeed);
         }
     }
@@ -64,19 +62,5 @@ public class Boss3Movement : MonoBehaviour
         float fractionOfJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
         if (transform.position == endPosition) GeneratePath(minX, maxX, minY, maxY);
-    }
-
-    private GameObject CheckForSpriteRenderer() {
-        SpriteRenderer _spriteRenderer = this.gameObject.GetComponentInChildren<SpriteRenderer>();
-        if (_spriteRenderer != null)
-        {
-            Debug.Log("Child with SpriteRenderer found: " + _spriteRenderer.gameObject.name);
-            return _spriteRenderer.gameObject;
-        }
-        else
-        {
-            Debug.Log("No child with SpriteRenderer found.");
-            return null;
-        }
     }
 }

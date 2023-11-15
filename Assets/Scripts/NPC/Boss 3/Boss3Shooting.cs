@@ -25,7 +25,6 @@ public class Boss3Shooting : MonoBehaviour
     private bool phase3Entered = default;
 
     [Header("Phase 4")]
-    [SerializeField]private float phase4FireRate = default;
     private bool phase4Entered = default;
 
     private void Start() {
@@ -79,7 +78,6 @@ public class Boss3Shooting : MonoBehaviour
 
     #region Phase 1 Code
     private void Phase1Enter() {
-        Debug.Log("Phase 1 entered.");
         timer = phase1FireRate;
     }
 
@@ -112,7 +110,6 @@ public class Boss3Shooting : MonoBehaviour
 
     #region Phase 2 Code
     private void Phase2Enter() {
-        Debug.Log("Phase 2 entered.");
         timer = phase2FireRate;
     }
 
@@ -134,7 +131,6 @@ public class Boss3Shooting : MonoBehaviour
 
     #region Phase 3 Code
     private void Phase3Enter() {
-        Debug.Log("Phase 3 entered.");
     }
 
     private void Phase3Update() {
@@ -157,7 +153,6 @@ public class Boss3Shooting : MonoBehaviour
 
     #region Phase 4 Code
     private void Phase4Enter() {
-        Debug.Log("Phase 4 entered.");
     }
 
     private void Phase4Update() {
