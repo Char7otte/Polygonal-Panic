@@ -37,12 +37,10 @@ public class HealthComponent : MonoBehaviour
         SpriteRenderer _spriteRenderer = this.gameObject.GetComponentInChildren<SpriteRenderer>();
         if (_spriteRenderer != null)
         {
-            Debug.Log("Child with SpriteRenderer found: " + _spriteRenderer.gameObject.name);
             return _spriteRenderer;
         }
         else
         {
-            Debug.Log("No child with SpriteRenderer found.");
             return null;
         }
     }
