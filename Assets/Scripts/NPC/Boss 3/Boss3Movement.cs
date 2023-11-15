@@ -19,8 +19,6 @@ public class Boss3Movement : MonoBehaviour
     [SerializeField]private float minY = default;
     [SerializeField]private float maxY = default;
 
-    private bool phase3TransitionStarted = default;
-
     private void Start()
     {
         originalPosition = transform.position;
