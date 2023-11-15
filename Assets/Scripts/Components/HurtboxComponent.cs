@@ -11,6 +11,9 @@ public class HurtboxComponent : MonoBehaviour
     [SerializeField]private float invincibilityTime = default;
     private float timerForIFrames = default;
 
+    public AudioSource audiosource;
+    public AudioClip hitsound;
+
     private void Start() {
         healthComponent = GetComponent<HealthComponent>();
     }
@@ -26,6 +29,7 @@ public class HurtboxComponent : MonoBehaviour
             int damageValue = other.gameObject.GetComponent<BulletComponent>().damageValue;
             other.gameObject.SetActive(false);
             healthComponent.TakeDamage(damageValue);
+            audiosource.PlayOneShot(hitsound);
 
             timerForIFrames = invincibilityTime;
         }
