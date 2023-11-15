@@ -2466,6 +2466,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
+      propertyPath: godMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1974836265, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: poolGroup
       value: 
