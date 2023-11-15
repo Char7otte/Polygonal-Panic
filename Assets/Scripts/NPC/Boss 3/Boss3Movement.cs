@@ -32,24 +32,14 @@ public class Boss3Movement : MonoBehaviour
     private void Update()
     {
         if (Boss3PhaseManager.instance.phase1) {
-            float distCovered = (Time.time - startTime) * movementSpeed;
-            float fractionOfJourney = distCovered / journeyLength;
-            transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
-            if (transform.position == endPosition) GeneratePath(minX, maxX, minY, maxY);
+            MoveToPosition(movementSpeed);
         }
         else if (Boss3PhaseManager.instance.phase2) {
-            movementSpeed = _movementSpeed * 1.5f;
-            float distCovered = (Time.time - startTime) * movementSpeed;
-            float fractionOfJourney = distCovered / journeyLength;
-            transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
-            if (transform.position == endPosition) GeneratePath(minX, maxX, minY, maxY);
+            MoveToPosition(movementSpeed * 1.5f);
         }
-        else if (Boss3PhaseManager.instance.phase3 && !phase3TransitionStarted) {
-            float distCovered = (Time.time - startTime) * movementSpeed;
-            float fractionOfJourney = distCovered / journeyLength;
-            transform.position = Vector3.Lerp(transform.position, originalPosition, fractionOfJourney);
-
-            if (transform.position == originalPosition) StartCoroutine(Phase3Transition());
+        else if (Boss3PhaseManager.instance.phase3) {
+            transform.position += transform.up * movementSpeed * Time.deltaTime * 2;
+            if(transform.position.y > 20) this.gameObject.SetActive(false);
         }
     }
 
@@ -66,5 +56,12 @@ public class Boss3Movement : MonoBehaviour
         endPosition = new Vector3(Random.Range(_minX, _maxX), Random.Range(_minY, _maxY), 0);
         startTime = Time.time;
         journeyLength = Vector3.Distance(startPosition, endPosition);
+    }
+
+    private void MoveToPosition(float _movementSpeed) {
+        float distCovered = (Time.time - startTime) * movementSpeed;
+        float fractionOfJourney = distCovered / journeyLength;
+        transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
+        if (transform.position == endPosition) GeneratePath(minX, maxX, minY, maxY);
     }
 }
