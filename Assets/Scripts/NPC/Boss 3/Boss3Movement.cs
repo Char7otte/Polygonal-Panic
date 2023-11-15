@@ -13,13 +13,19 @@ public class Boss3Movement : MonoBehaviour
     private float startTime = default;
     private float journeyLength = default;
 
+    [Header("Path Limits")]
+    [SerializeField]private float minX;
+    [SerializeField]private float maxX;
+    [SerializeField]private float minY;
+    [SerializeField]private float maxY;
+
     private bool phase3TransitionStarted = default;
 
     private void Start()
     {
         originalPosition = transform.position;
 
-        GeneratePath(-6, 6, 1, 3.75f);
+        GeneratePath(minX, maxX, minY, maxY);
         _movementSpeed = movementSpeed;
     }
 
@@ -29,14 +35,14 @@ public class Boss3Movement : MonoBehaviour
             float distCovered = (Time.time - startTime) * movementSpeed;
             float fractionOfJourney = distCovered / journeyLength;
             transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
-            if (transform.position == endPosition) GeneratePath(-6, 6, 1, 3.75f);
+            if (transform.position == endPosition) GeneratePath(minX, maxX, minY, maxY);
         }
         else if (Boss3PhaseManager.instance.phase2) {
             movementSpeed = _movementSpeed * 1.5f;
             float distCovered = (Time.time - startTime) * movementSpeed;
             float fractionOfJourney = distCovered / journeyLength;
             transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
-            if (transform.position == endPosition) GeneratePath(-6, 6, 1, 3.75f);
+            if (transform.position == endPosition) GeneratePath(minX, maxX, minY, maxY);
         }
         else if (Boss3PhaseManager.instance.phase3 && !phase3TransitionStarted) {
             float distCovered = (Time.time - startTime) * movementSpeed;

@@ -22,7 +22,13 @@ public class HUD : MonoBehaviour
 
     [Header("Boss Health Parameters")]
     private int bossHealth = default;
+    private bool showBossHealth = true;
     [SerializeField]private TextMeshProUGUI bossHealthText = default;
+
+    [Header("Phase 3 Parameters")]
+    private float phase3Timer = default;
+    private bool showPhase3Timer = false;
+    [SerializeField]private TextMeshProUGUI phase3TimerText = default;
 
 
 
@@ -36,6 +42,8 @@ public class HUD : MonoBehaviour
     {
         PlayerHealthUpdate();
         BossHealthUpdate();
+        if (Boss3PhaseManager.instance.phase3) TimerUpdate();
+        else phase3TimerText.gameObject.SetActive(false);
     }
 
     private void PlayerHealthUpdate() {
@@ -58,5 +66,11 @@ public class HUD : MonoBehaviour
     private void BossHealthUpdate() {
         bossHealth = Boss3PhaseManager.instance.bossTotalHealth;
         bossHealthText.SetText("Boss Health: " + bossHealth);
+    }
+
+    private void TimerUpdate() {
+        phase3TimerText.gameObject.SetActive(true);
+        phase3Timer = Boss3PhaseManager.instance.phase3ExitTimer;
+        phase3TimerText.SetText("Survive for: " + phase3Timer.ToString("F0"));
     }
 }

@@ -31,9 +31,8 @@ public class Boss3PhaseManager : MonoBehaviour
     public GameObject[] bossHurtboxes = default;
 
     private void Awake_() {
-        foreach (var hurtbox in bossHurtboxes) {
-            bossMaxHealth += hurtbox.GetComponent<HealthComponent>().maxHealth;
-        }
+        bossMaxHealth += bossHurtboxes[0].GetComponent<HealthComponent>().maxHealth;
+        bossMaxHealth += bossHurtboxes[1].GetComponent<HealthComponent>().maxHealth;
         bossTotalHealth = bossMaxHealth;
     }
 
