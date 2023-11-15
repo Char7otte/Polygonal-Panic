@@ -10,7 +10,7 @@ public class HealthComponent : MonoBehaviour
     private bool startedCoroutine = false;
 
     [Header("Debug")]
-    [SerializeField]private bool godMode = true;
+    [SerializeField]private bool godMode = false;
 
     private void Start() {
         currentHealth = maxHealth;
@@ -26,7 +26,7 @@ public class HealthComponent : MonoBehaviour
         DamageProbeEffect();
         
         if (currentHealth <= 0) {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
