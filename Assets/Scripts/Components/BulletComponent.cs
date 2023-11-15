@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletComponent : MonoBehaviour
 {
     [Header("Travel Parameters")]
-    [SerializeField]private float travelSpeed = default;
+    public float travelSpeed = default;
     [SerializeField]private float bulletLifeTime = default;
     
     [Header("Bullet Damage")]
