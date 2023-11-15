@@ -1066,10 +1066,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
+  minX: -6
+  maxX: 6
+  minY: 1
+  maxY: 3.75
 --- !u!114 &1034382143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034382140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce3fa8683247805498180ebeea2c0a42, type: 3}
   m_Name: 
@@ -1140,7 +1140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034382140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: 0, y: -3.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1315801345}
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2978ef8a5a3fbb846bd86520f3316b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderObjectTag: PlayerBullet
+  colliderObjectTag: Player Bullet
   invincibilityTime: 0
 --- !u!1 &1077470016
 GameObject:
@@ -1255,7 +1255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117949812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.142148, y: 2.3939238, z: -1.0843374}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7defec4e7d918459e012833a84ab9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 180
+  rotateSpeed: 720
 --- !u!212 &1315801347
 SpriteRenderer:
   m_ObjectHideFlags: 0

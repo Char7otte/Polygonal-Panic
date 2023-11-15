@@ -7,8 +7,6 @@ public class RotateObject : MonoBehaviour
     [SerializeField]private float rotateSpeed = default;
 
     private void Update() {
-        if (!Boss3PhaseManager.instance.phase1) {
-            transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
-        }
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);   
     }
 }

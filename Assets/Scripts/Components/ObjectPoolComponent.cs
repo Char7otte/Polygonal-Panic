@@ -30,6 +30,7 @@ public class ObjectPoolComponent : MonoBehaviour
             return pooledObjects[i];
         }
     }
-        return null;
+        return null; 
+        //this is intentional, I don't want the game to create any brand new objects if the pool runs out. -M
     }
 }

@@ -9,9 +9,16 @@ public class HealthComponent : MonoBehaviour
     private SpriteRenderer spriteRenderer = default;
     private bool startedCoroutine = false;
 
+    [Debug("Invincibililty")]
+    [SerializeField]private bool godMode = true;
+
     private void Start() {
         currentHealth = maxHealth;
         spriteRenderer = CheckForSpriteRenderer();
+    }
+
+    private void Update() {
+        if (godMode) currentHealth = maxHealth;
     }
 
     public void TakeDamage(int damageValue) {

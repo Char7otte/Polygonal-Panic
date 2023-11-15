@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,11 +67,11 @@ public class Boss3PhaseManager : MonoBehaviour
             phase3Boss.SetActive(true);
         }
         else {
-                phase3 = false;
-                phase4 = true;
-                phase3Boss.SetActive(false);
-                phase4Boss.SetActive(true);
-            }
+            phase3 = false;
+            phase4 = true;
+            phase3Boss.SetActive(false);
+            phase4Boss.SetActive(true);
+        }
     }
 
     private int GetBossHealth() {

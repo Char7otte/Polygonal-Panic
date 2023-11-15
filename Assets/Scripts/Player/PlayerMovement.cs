@@ -17,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     int rotateDirection;
 
     private void Start() {
-        CheckGameDimensions();
+        mainCamera = Camera.main;
+        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
     }
 
     private void Update() {
@@ -53,12 +54,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(movementVector * movementSpeed * Time.deltaTime);
         spriteTexture.Rotate(0, 0, spinSpeed * Time.deltaTime * rotateDirection * -1);
     }
-
-    private void CheckGameDimensions() {
-        mainCamera = Camera.main;
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-    }
-
+    
     private void StopObjectFromGoingOffScreen() {
         Vector3 newPosition = transform.position;
         newPosition.x = Mathf.Clamp(newPosition.x, -screenBounds.x + objectWidth / 2, screenBounds.x - objectWidth / 2);

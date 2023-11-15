@@ -19,8 +19,6 @@ public class Boss3Movement : MonoBehaviour
     [SerializeField]private float minY = default;
     [SerializeField]private float maxY = default;
 
-    private bool phase3TransitionStarted = default;
-
     private void Start()
     {
         originalPosition = transform.position;
@@ -36,16 +34,19 @@ public class Boss3Movement : MonoBehaviour
         }
         else if (Boss3PhaseManager.instance.phase2) {
             MoveToPosition(movementSpeed * 1.5f);
+            GameObject sprite = CheckForSpriteRenderer();
         }
         else if (Boss3PhaseManager.instance.phase3) {
             transform.position += transform.up * movementSpeed * Time.deltaTime * 2;
             if(transform.position.y > 20) this.gameObject.SetActive(false);
         }
+        else if (Boss3PhaseManager.instance.phase4) {
+            print("rotation started.");
+            GameObject sprite = CheckForSpriteRenderer();
+        }
     }
 
     IEnumerator Phase3Transition() {
-        phase3TransitionStarted = true;
-        // yield return new WaitForSeconds(2);
         transform.position += transform.up * movementSpeed;
         yield return new WaitForSeconds(2);
     }
@@ -59,9 +60,23 @@ public class Boss3Movement : MonoBehaviour
     }
 
     private void MoveToPosition(float _movementSpeed) {
-        float distCovered = (Time.time - startTime) * movementSpeed;
+        float distCovered = (Time.time - startTime) * _movementSpeed;
         float fractionOfJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
         if (transform.position == endPosition) GeneratePath(minX, maxX, minY, maxY);
+    }
+
+    private GameObject CheckForSpriteRenderer() {
+        SpriteRenderer _spriteRenderer = this.gameObject.GetComponentInChildren<SpriteRenderer>();
+        if (_spriteRenderer != null)
+        {
+            Debug.Log("Child with SpriteRenderer found: " + _spriteRenderer.gameObject.name);
+            return _spriteRenderer.gameObject;
+        }
+        else
+        {
+            Debug.Log("No child with SpriteRenderer found.");
+            return null;
+        }
     }
 }
