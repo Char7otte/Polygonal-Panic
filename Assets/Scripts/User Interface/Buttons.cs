@@ -12,4 +12,8 @@ public class Buttons : MonoBehaviour
     public void QuitGame() {
         Application.Quit();
     }
+
+    public void ToggleActiveObject(GameObject targetObject) {
+        targetObject.SetActive(!targetObject.activeSelf);
+    }
 }
