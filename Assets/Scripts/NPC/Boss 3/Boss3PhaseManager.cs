@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss3PhaseManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class Boss3PhaseManager : MonoBehaviour
     public int bossTotalHealth = default;
     public GameObject[] bossHurtboxes = default;
     public GameObject deathExplosion = default;
+    public bool bossIsDead = false;
 
     private void Awake_() {
         bossMaxHealth += bossHurtboxes[0].GetComponent<HealthComponent>().maxHealth;
@@ -51,7 +53,7 @@ public class Boss3PhaseManager : MonoBehaviour
         }
         else if (phase4) {
             bossTotalHealth = GetBossHealth2();
-            if (bossTotalHealth <= 0) {
+            if (bossTotalHealth <= 0 && !bossIsDead) {
                 BossHasDied();
             }
         }
@@ -91,7 +93,14 @@ public class Boss3PhaseManager : MonoBehaviour
     }
 
     private void BossHasDied() {
+        bossIsDead = true;
         Instantiate(deathExplosion, phase4Boss.transform.position, Quaternion.identity);
+        StartCoroutine("GoToGameWinScreen");
         print("boss has died.");
+    }
+
+    IEnumerator GoToGameWinScreen() {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GameWinScene");
     }
 }
