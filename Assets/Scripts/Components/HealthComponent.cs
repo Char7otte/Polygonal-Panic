@@ -11,6 +11,8 @@ public class HealthComponent : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField]private bool godMode = false;
+    public AudioSource audiosource;
+    public AudioClip losesound;
 
     private void Start() {
         currentHealth = maxHealth;
@@ -27,6 +29,7 @@ public class HealthComponent : MonoBehaviour
         
         if (currentHealth <= 0) {
             this.gameObject.SetActive(false);
+            audiosource.PlayOneShot(losesound);
         }
     }
 
