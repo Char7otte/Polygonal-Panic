@@ -9,7 +9,7 @@ public class HealthComponent : MonoBehaviour
     private SpriteRenderer spriteRenderer = default;
     private bool startedCoroutine = false;
 
-    [Debug("Invincibililty")]
+    [Header("Debug")]
     [SerializeField]private bool godMode = true;
 
     private void Start() {
