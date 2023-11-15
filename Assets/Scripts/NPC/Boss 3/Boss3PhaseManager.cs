@@ -61,7 +61,7 @@ public class Boss3PhaseManager : MonoBehaviour
             phase1 = false;
             phase2 = true;
         }
-        else if (bossTotalHealth == 0) {
+        else if (bossTotalHealth > 10) {
             phase2 = false;
             phase3 = true;
             phase1Boss.SetActive(false);
