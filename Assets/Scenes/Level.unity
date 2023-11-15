@@ -2058,7 +2058,6 @@ MonoBehaviour:
   phase1FireRate: 0.4
   phase2FireRate: 0
   phase3FireRate: 0.2
-  phase4FireRate: 0
 --- !u!4 &1645750069
 Transform:
   m_ObjectHideFlags: 0
@@ -2475,7 +2474,6 @@ MonoBehaviour:
   phase1FireRate: 0.4
   phase2FireRate: 0
   phase3FireRate: 0
-  phase4FireRate: 0
 --- !u!114 &2002004546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,7 +2580,7 @@ PrefabInstance:
     - target: {fileID: 1974836261, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: audiosource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1401821240}
     - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: godMode
       value: 0
@@ -2594,7 +2592,7 @@ PrefabInstance:
     - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: audiosource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1401821240}
     - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: losesound
       value: 
