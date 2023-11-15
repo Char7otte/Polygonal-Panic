@@ -43,13 +43,10 @@ public class Boss3Movement : MonoBehaviour
         else if (Boss3PhaseManager.instance.phase4) {
             print("rotation started.");
             GameObject sprite = CheckForSpriteRenderer();
-            sprite.transform.Rotate(0, 0, 45 * Time.deltaTime);
         }
     }
 
     IEnumerator Phase3Transition() {
-        phase3TransitionStarted = true;
-        // yield return new WaitForSeconds(2);
         transform.position += transform.up * movementSpeed;
         yield return new WaitForSeconds(2);
     }
