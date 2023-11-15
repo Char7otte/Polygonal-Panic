@@ -358,9 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e1d66a1a0edff47a72443fa28722d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
-  spriteRenderer: {fileID: 0}
 --- !u!114 &58403361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +718,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Survive for: 15'
+  m_text: 15
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1032,6 +1031,7 @@ GameObject:
   - component: {fileID: 1034382143}
   - component: {fileID: 1034382142}
   - component: {fileID: 1034382141}
+  - component: {fileID: 1034382147}
   m_Layer: 0
   m_Name: Boss Phase 4
   m_TagString: Untagged
@@ -1053,7 +1053,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 80
   currentHealth: 0
-  spriteRenderer: {fileID: 0}
 --- !u!114 &1034382142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,7 +1132,6 @@ MonoBehaviour:
   phase1FireRate: 0.4
   phase2FireRate: 0
   phase3FireRate: 0
-  phase4FireRate: 0.2
 --- !u!4 &1034382146
 Transform:
   m_ObjectHideFlags: 0
@@ -1150,6 +1148,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034382147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034382140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2978ef8a5a3fbb846bd86520f3316b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderObjectTag: PlayerBullet
+  invincibilityTime: 0
 --- !u!1 &1077470016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1277,7 @@ MonoBehaviour:
   phase1Boss: {fileID: 2002004543}
   phase1ExitHealthPercentage: 0.7
   phase2: 0
-  phase2ExitHealthPercentage: 0.5
+  phase2ExitHealthPercentage: 0.2
   phase3: 0
   phase3Boss: {fileID: 1645750065}
   phase3ExitTimer: 20
@@ -1738,7 +1750,6 @@ MonoBehaviour:
   - {fileID: 1935905312}
   fullHeart: {fileID: 21300000, guid: d2bbd029a2a5d3e41b257c9dc5a7cdc8, type: 3}
   emptyHeart: {fileID: 21300000, guid: 67d5ece6d09f6f344a04a81d232d150e, type: 3}
-  boss: {fileID: 2002004543}
   bossHealthText: {fileID: 482096756}
   phase3TimerText: {fileID: 507858019}
 --- !u!1 &1451449978
@@ -1936,7 +1947,6 @@ MonoBehaviour:
   phase1FireRate: 0.4
   phase2FireRate: 0
   phase3FireRate: 0.2
-  phase4FireRate: 0
 --- !u!4 &1645750069
 Transform:
   m_ObjectHideFlags: 0
@@ -2135,9 +2145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e1d66a1a0edff47a72443fa28722d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
-  spriteRenderer: {fileID: 0}
 --- !u!114 &1859804098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,7 +2358,6 @@ MonoBehaviour:
   phase1FireRate: 0.4
   phase2FireRate: 0
   phase3FireRate: 0
-  phase4FireRate: 0
 --- !u!114 &2002004546
 MonoBehaviour:
   m_ObjectHideFlags: 0
