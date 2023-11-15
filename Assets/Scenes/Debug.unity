@@ -360,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   currentHealth: 0
+  godMode: 0
 --- !u!114 &58403361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +719,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15
+  m_text: '20
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1026,12 +1029,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1034382146}
-  - component: {fileID: 1034382145}
   - component: {fileID: 1034382144}
   - component: {fileID: 1034382143}
   - component: {fileID: 1034382142}
   - component: {fileID: 1034382141}
   - component: {fileID: 1034382147}
+  - component: {fileID: 1034382145}
   m_Layer: 0
   m_Name: Boss Phase 4
   m_TagString: Untagged
@@ -1051,8 +1054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e1d66a1a0edff47a72443fa28722d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 80
+  maxHealth: 12
   currentHealth: 0
+  godMode: 0
 --- !u!114 &1034382142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,10 +1069,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63059df2283629d4f9208e82d80e4368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 15
   minX: -6
   maxX: 6
-  minY: 1
+  minY: -3.75
   maxY: 3.75
 --- !u!114 &1034382143
 MonoBehaviour:
@@ -1122,16 +1126,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034382140}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce3fa8683247805498180ebeea2c0a42, type: 3}
+  m_Script: {fileID: 11500000, guid: 79ebb5333ac0b104ba90610916ead0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnPositions:
-  - {fileID: 1451449979}
-  phase1FireRate: 0.4
-  phase2FireRate: 0
-  phase3FireRate: 0
+  startedCoroutine: 0
+  bulletSpawnLocation: {fileID: 1451449979}
+  fireRate: 0.05
+  numberOfRotations: 10
 --- !u!4 &1034382146
 Transform:
   m_ObjectHideFlags: 0
@@ -1947,6 +1950,7 @@ MonoBehaviour:
   phase1FireRate: 0.4
   phase2FireRate: 0
   phase3FireRate: 0.2
+  phase4FireRate: 0
 --- !u!4 &1645750069
 Transform:
   m_ObjectHideFlags: 0
@@ -2147,6 +2151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   currentHealth: 0
+  godMode: 0
 --- !u!114 &1859804098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2358,6 +2363,7 @@ MonoBehaviour:
   phase1FireRate: 0.4
   phase2FireRate: 0
   phase3FireRate: 0
+  phase4FireRate: 0
 --- !u!114 &2002004546
 MonoBehaviour:
   m_ObjectHideFlags: 0

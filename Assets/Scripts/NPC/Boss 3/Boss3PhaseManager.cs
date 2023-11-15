@@ -29,6 +29,7 @@ public class Boss3PhaseManager : MonoBehaviour
     public int bossMaxHealth = default;
     public int bossTotalHealth = default;
     public GameObject[] bossHurtboxes = default;
+    public GameObject deathExplosion = default;
 
     private void Awake_() {
         bossMaxHealth += bossHurtboxes[0].GetComponent<HealthComponent>().maxHealth;
@@ -50,6 +51,9 @@ public class Boss3PhaseManager : MonoBehaviour
         }
         else if (phase4) {
             bossTotalHealth = GetBossHealth2();
+            if (bossTotalHealth <= 0) {
+                BossHasDied();
+            }
         }
     }
 
@@ -84,5 +88,10 @@ public class Boss3PhaseManager : MonoBehaviour
 
     private int GetBossHealth2() {
         return bossHurtboxes[2].GetComponent<HealthComponent>().currentHealth;
+    }
+
+    private void BossHasDied() {
+        Instantiate(deathExplosion, phase4Boss.transform.position, Quaternion.identity);
+        print("boss has died.");
     }
 }

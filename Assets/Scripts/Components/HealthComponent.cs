@@ -9,8 +9,8 @@ public class HealthComponent : MonoBehaviour
     private SpriteRenderer spriteRenderer = default;
     private bool startedCoroutine = false;
 
-    [Debug("Invincibililty")]
-    [SerializeField]private bool godMode = true;
+    [Header("Debug")]
+    [SerializeField]private bool godMode = false;
 
     private void Start() {
         currentHealth = maxHealth;
@@ -26,7 +26,7 @@ public class HealthComponent : MonoBehaviour
         DamageProbeEffect();
         
         if (currentHealth <= 0) {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 

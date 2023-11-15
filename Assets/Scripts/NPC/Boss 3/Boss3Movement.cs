@@ -41,8 +41,8 @@ public class Boss3Movement : MonoBehaviour
             if(transform.position.y > 20) this.gameObject.SetActive(false);
         }
         else if (Boss3PhaseManager.instance.phase4) {
-            print("rotation started.");
             GameObject sprite = CheckForSpriteRenderer();
+            MoveToPosition(movementSpeed);
         }
     }
 
