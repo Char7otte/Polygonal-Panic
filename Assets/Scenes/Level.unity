@@ -377,8 +377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderObjectTag: Player Bullet
   invincibilityTime: 0
-  audiosource: {fileID: 0}
-  hitsound: {fileID: 0}
+  audiosource: {fileID: 1401821240}
+  hitsound: {fileID: 8300000, guid: 3ffdfbd70e7ec4f459a01b31ff83ab4c, type: 3}
 --- !u!1 &201770869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderObjectTag: Player Bullet
   invincibilityTime: 0
+  audiosource: {fileID: 1401821240}
+  hitsound: {fileID: 8300000, guid: 3ffdfbd70e7ec4f459a01b31ff83ab4c, type: 3}
 --- !u!1 &1077470016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,8 +2276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderObjectTag: Player Bullet
   invincibilityTime: 0
-  audiosource: {fileID: 0}
-  hitsound: {fileID: 0}
+  audiosource: {fileID: 1401821240}
+  hitsound: {fileID: 8300000, guid: 3ffdfbd70e7ec4f459a01b31ff83ab4c, type: 3}
 --- !u!1 &1935905310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,10 +2575,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
-      propertyPath: godMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1974836261, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: hitsound
       value: 
@@ -2584,7 +2582,11 @@ PrefabInstance:
     - target: {fileID: 1974836261, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: audiosource
       value: 
-      objectReference: {fileID: 503848240}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
+      propertyPath: godMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: loseound
       value: 
@@ -2592,7 +2594,7 @@ PrefabInstance:
     - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: audiosource
       value: 
-      objectReference: {fileID: 503848240}
+      objectReference: {fileID: 0}
     - target: {fileID: 1974836262, guid: 8a46d07dbb5164f4f831291ff27f7bf7, type: 3}
       propertyPath: losesound
       value: 
