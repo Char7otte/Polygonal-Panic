@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 12
-  currentHealth: 0
+  currentHealth: 12
   godMode: 0
 --- !u!114 &1034382142
 MonoBehaviour:
@@ -1292,6 +1292,9 @@ MonoBehaviour:
   - {fileID: 58403357}
   - {fileID: 1859804094}
   - {fileID: 1034382140}
+  deathExplosion: {fileID: 1967835574231978638, guid: 3e196c9e632c76841a71cb6e2dc6d010,
+    type: 3}
+  bossIsDead: 0
 --- !u!1 &1125266109
 GameObject:
   m_ObjectHideFlags: 0
