@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public static GameObject player = default;
+    private bool playerHasDied = false;
 
     private void Awake()
     {
@@ -34,7 +36,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -43,5 +44,17 @@ public class GameManager : MonoBehaviour
         #endregion
 
         player = GameObject.Find("Player");
+    }
+
+    private void Update() {
+        if (!player.activeSelf && !playerHasDied) {
+            StartCoroutine(GameLose());
+        }
+    }
+
+    IEnumerator GameLose() {
+        playerHasDied = true;
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GameLoseScene");
     }
 }
