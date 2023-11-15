@@ -91,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2829272762340099053}
   - component: {fileID: 2688714640770742160}
+  - component: {fileID: 5028209740882855635}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Untagged
@@ -126,8 +127,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 7
-  bulletLifeTime: 3
+  bulletLifeTime: 25
   damageValue: 1
   curveTowardsPlayer: 0
   rotation: 0
   rotateSpeed: 0
+--- !u!114 &5028209740882855635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291480193677515163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42975aeebae074144b9deda850dc0456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
